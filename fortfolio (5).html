@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuram Subbalaxmi - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="60" cy="30" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title {
+            font-size: 1.3em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .location {
+            margin-top: 15px;
+            font-size: 1.1em;
+            opacity: 0.8;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #2c3e50, #34495e);
+            color: white;
+            padding: 40px 30px;
+        }
+
+        .content {
+            padding: 40px 30px;
+            background: white;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .sidebar .section-title {
+            color: #ecf0f1;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .content .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #e74c3c;
+        }
+
+        .skill-item {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 8px 15px;
+            margin: 8px 0;
+            border-radius: 20px;
+            border-left: 4px solid #3498db;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateX(5px);
+            background: rgba(52, 152, 219, 0.2);
+        }
+
+        .education-item, .experience-item, .project-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #e74c3c;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover, .experience-item:hover, .project-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .item-title {
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .item-subtitle {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .item-description {
+            color: #34495e;
+            line-height: 1.5;
+        }
+
+        .strengths-list {
+            list-style: none;
+        }
+
+        .strengths-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(236, 240, 241, 0.3);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .strengths-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .hobbies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .hobby-tag {
+            background: linear-gradient(135deg, #ff9a56, #ff6b6b);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .contact-info {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            color: #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .name {
+                font-size: 2.2em;
+            }
+            
+            .resume-container {
+                margin: 10px;
+            }
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tech-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9em;
+            transition: transform 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header">
+            <div class="header-content">
+                <h1 class="name">KURAM SUBBALAXMI</h1>
+                <p class="title">Full Stack Developer & Mathematics Student</p>
+                <p class="location">📍 Nallakunta, Yatapaka Mandal, Telangana</p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="section">
+                    <h2 class="section-title">Technical Skills</h2>
+                    <div class="tech-stack">
+                        <div class="tech-item">Git</div>
+                        <div class="tech-item">GitHub</div>
+                        <div class="tech-item">HTML</div>
+                        <div class="tech-item">CSS</div>
+                        <div class="tech-item">JavaScript</div>
+                        <div class="tech-item">Node.js</div>
+                        <div class="tech-item">MongoDB</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Strengths</h2>
+                    <ul class="strengths-list">
+                        <li>Self-motivated and eager to learn new technologies</li>
+                        <li>Passion for practical implementation and real-world projects</li>
+                        <li>Strong analytical skills</li>
+                        <li>Excellent communication abilities</li>
+                        <li>Problem-solving expertise</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Hobbies & Interests</h2>
+                    <div class="hobbies">
+                        <span class="hobby-tag">📚 Reading Books</span>
+                        <span class="hobby-tag">🌐 Browsing Internet</span>
+                        <span class="hobby-tag">🎨 Drawing</span>
+                        <span class="hobby-tag">📺 Watching TV</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="section">
+                    <h2 class="section-title">Education</h2>
+                    
+                    <div class="education-item">
+                        <div class="item-title">BSc Mathematics Honours (3rd Year)</div>
+                        <div class="item-subtitle">Government Degree College (A), Rajahmundry</div>
+                        <div class="item-description">Currently pursuing Bachelor's degree in Mathematics with Honours specialization.</div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="item-title">Intermediate</div>
+                        <div class="item-subtitle">A.P.T.W.R Junior College Girls, Kunavaram</div>
+                        <div class="item-description">Completed intermediate education with strong academic performance.</div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="item-title">SSC (Secondary School Certificate)</div>
+                        <div class="item-subtitle">A.G.H.S Narasingapeta</div>
+                        <div class="item-description">Completed secondary education with solid foundation in core subjects.</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Experience</h2>
+                    
+                    <div class="experience-item">
+                        <div class="item-title">IT Global Internship – Full Stack Development</div>
+                        <div class="item-subtitle">Current</div>
+                        <div class="item-description">Gaining hands-on experience with end-to-end web development and deployment. Learning modern development practices and industry standards.</div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="item-title">CID Agrigold Internship</div>
+                        <div class="item-subtitle">Completed</div>
+                        <div class="item-description">Worked on software and technology exposure in agricultural use-cases. Developed understanding of AgriTech solutions and their real-world applications.</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Projects</h2>
+                    
+                    <div class="project-item">
+                        <div class="item-title">🎬 Bhavani Movie Tickets – Online Booking System</div>
+                        <div class="item-subtitle">Full Stack Web Application</div>
+                        <div class="item-description">Developed a comprehensive full-stack website using modern technologies. Features include user-friendly interface, responsive design, and complete booking functionality for movie tickets.</div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="item-title">💼 Personal Portfolio Website</div>
+                        <div class="item-subtitle">Web Development</div>
+                        <div class="item-description">Created a professional portfolio using HTML, CSS, and JavaScript to showcase projects, skills, and experience. Features responsive design and interactive elements.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
